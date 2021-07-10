@@ -1260,7 +1260,7 @@ uint8_t shell_at_cmd_parse(uint8_t *shell_string)
         
         HW_DEBUG("connect_addr:%02x:%02x:%02x:%02x:%02x:%02x\n", connect_addr.addr[0], connect_addr.addr[1], 
                  connect_addr.addr[2], connect_addr.addr[3], connect_addr.addr[4], connect_addr.addr[5], connect_addr.addr[6]);
-        spp_send_data(&connect_addr,"1234567",hw_strlen("1234567"));
+        spp_send_data(&connect_addr,"12345678",hw_strlen("12345678"));
         return HW_ERR_OK;
     }
 
