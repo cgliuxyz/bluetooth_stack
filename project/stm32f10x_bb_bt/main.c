@@ -1256,8 +1256,11 @@ uint8_t shell_at_cmd_parse(uint8_t *shell_string)
 #if PROFILE_SPP_ENABLE > 0
     if(hw_strcmp("SPP_SEND",(const char*)shell_string) == 0)
     {
-        HW_DEBUG("SHELL:operate bt stop\n");
-        spp_send_data(&connect_addr,"111111",hw_strlen("111111"));
+        HW_DEBUG("SHELL:operate spp SEND\n");
+        
+        HW_DEBUG("connect_addr:%02x:%02x:%02x:%02x:%02x:%02x\n", connect_addr.addr[0], connect_addr.addr[1], 
+                 connect_addr.addr[2], connect_addr.addr[3], connect_addr.addr[4], connect_addr.addr[5], connect_addr.addr[6]);
+        spp_send_data(&connect_addr,"123456",hw_strlen("123456"));
         return HW_ERR_OK;
     }
 
