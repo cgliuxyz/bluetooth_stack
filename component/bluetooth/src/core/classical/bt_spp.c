@@ -148,8 +148,8 @@ err_t spp_disconnect(struct bd_addr_t *addr)
 *函数名：spp_send_data
 *描   述：SPP协议数据发送
 *参   数：bd_addr_t *addr 蓝牙mac
-          uint8_t *data 发送的数据
-          uint16_t data_len 发送数据长度
+         uint8_t *data 发送的数据
+         uint16_t data_len 发送数据长度
 *返回值：err_t 执行状态
 *注   意：无
 */
