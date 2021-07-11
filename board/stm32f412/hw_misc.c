@@ -112,5 +112,3 @@ void system_clock_config(void)
     }
 }
 
-
-

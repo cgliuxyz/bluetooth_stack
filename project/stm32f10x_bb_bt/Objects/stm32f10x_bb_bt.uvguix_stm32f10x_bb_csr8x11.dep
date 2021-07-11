@@ -773,7 +773,7 @@ F (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\src\usb_core.c)(0x60E81380)(--
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -820,7 +820,7 @@ F (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\src\usb_init.c)(0x60E81380)(--
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -867,7 +867,7 @@ F (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\src\usb_int.c)(0x60E81380)(--c
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -914,7 +914,7 @@ F (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\src\usb_mem.c)(0x60E81380)(--c
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -961,7 +961,7 @@ F (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\src\usb_regs.c)(0x60E81380)(--
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1008,7 +1008,7 @@ F (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\src\usb_sil.c)(0x60E81380)(--c
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1053,7 +1053,7 @@ I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_mem.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_led.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_led.o --omf_browse .\objects\hw_led.crf --depend .\objects\hw_led.d)
 I (..\..\board\stm32f10x\hw_led.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1088,7 +1088,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_usart.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_misc.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_misc.o --omf_browse .\objects\hw_misc.crf --depend .\objects\hw_misc.d)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1124,7 +1124,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_oled.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_oled.o --omf_browse .\objects\hw_oled.crf --depend .\objects\hw_oled.d)
 I (..\..\board\stm32f10x\hw_oled.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1160,7 +1160,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_systick.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_systick.o --omf_browse .\objects\hw_systick.crf --depend .\objects\hw_systick.d)
 I (..\..\board\stm32f10x\hw_systick.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1196,7 +1196,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_uart.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_uart.o --omf_browse .\objects\hw_uart.crf --depend .\objects\hw_uart.d)
 I (..\..\board\stm32f10x\hw_uart.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1232,7 +1232,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_button.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_button.o --omf_browse .\objects\hw_button.crf --depend .\objects\hw_button.d)
 I (..\..\board\stm32f10x\hw_button.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1267,7 +1267,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_usart.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_exti.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_exti.o --omf_browse .\objects\hw_exti.crf --depend .\objects\hw_exti.d)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1304,7 +1304,7 @@ I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\usb_mass_storage\hw_config.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_config.o --omf_browse .\objects\hw_config.crf --depend .\objects\hw_config.d)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1354,7 +1354,7 @@ I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\usb_istr.h)(0x60E81380)
 F (..\..\board\stm32f10x\usb_mass_storage\mass_mal.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\mass_mal.o --omf_browse .\objects\mass_mal.crf --depend .\objects\mass_mal.d)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1394,7 +1394,7 @@ F (..\..\board\stm32f10x\usb_mass_storage\memory.c)(0x60E81380)(--c99 --gnu -c -
 I (..\..\board\stm32f10x\usb_mass_storage\memory.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1445,7 +1445,7 @@ F (..\..\board\stm32f10x\usb_mass_storage\scsi_data.c)(0x60E81380)(--c99 --gnu -
 I (..\..\board\stm32f10x\usb_mass_storage\usb_scsi.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1486,7 +1486,7 @@ F (..\..\board\stm32f10x\usb_mass_storage\usb_bot.c)(0x60E81380)(--c99 --gnu -c 
 I (..\..\board\stm32f10x\usb_mass_storage\usb_scsi.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1536,7 +1536,7 @@ F (..\..\board\stm32f10x\usb_mass_storage\usb_desc.c)(0x60E81380)(--c99 --gnu -c
 I (..\..\board\stm32f10x\usb_mass_storage\usb_desc.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1574,7 +1574,7 @@ F (..\..\board\stm32f10x\usb_mass_storage\usb_endp.c)(0x60E81380)(--c99 --gnu -c
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1622,7 +1622,7 @@ I (..\..\board\stm32f10x\usb_mass_storage\usb_istr.h)(0x60E81380)
 F (..\..\board\stm32f10x\usb_mass_storage\usb_istr.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usb_istr.o --omf_browse .\objects\usb_istr.crf --depend .\objects\usb_istr.d)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1671,7 +1671,7 @@ I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_mem.h)(0x60E81380)
 F (..\..\board\stm32f10x\usb_mass_storage\usb_prop.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usb_prop.o --omf_browse .\objects\usb_prop.crf --depend .\objects\usb_prop.d)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1725,7 +1725,7 @@ F (..\..\board\stm32f10x\usb_mass_storage\usb_pwr.c)(0x60E81380)(--c99 --gnu -c 
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_lib.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1772,7 +1772,7 @@ I (..\..\board\stm32f10x\usb_mass_storage\usb_pwr.h)(0x60E81380)
 F (..\..\board\stm32f10x\usb_mass_storage\usb_scsi.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\usb_scsi.o --omf_browse .\objects\usb_scsi.crf --depend .\objects\usb_scsi.d)
 I (..\..\board\stm32f10x\usb_mass_storage\hw_config.h)(0x60E81380)
 I (..\..\board\stm32f10x\usb_mass_storage\platform_config.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1822,7 +1822,7 @@ I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_mem.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc\usb_int.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_spi_flash.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_spi_flash.o --omf_browse .\objects\hw_spi_flash.crf --depend .\objects\hw_spi_flash.d)
 I (..\..\board\stm32f10x\hw_spi_flash.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -1858,7 +1858,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 F (..\..\board\stm32f10x\hw_sht2x.c)(0x60E81380)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\hw_sht2x.o --omf_browse .\objects\hw_sht2x.crf --depend .\objects\hw_sht2x.d)
 I (..\..\board\stm32f10x\hw_sht2x.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
@@ -2154,7 +2154,7 @@ I (..\..\component\bluetooth\src\include\bt_memp.h)(0x60E81380)
 I (..\..\component\bluetooth\src\include\bt_hci.h)(0x60E81380)
 I (..\..\component\bluetooth\src\include\bt_pbuf.h)(0x60E81380)
 I (..\..\component\bluetooth\vendor\bt_vendor_manager.h)(0x60E81380)
-F (..\..\component\bluetooth\src\core\classical\bt_spp.c)(0x60E95E2F)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bt_spp.o --omf_browse .\objects\bt_spp.crf --depend .\objects\bt_spp.d)
+F (..\..\component\bluetooth\src\core\classical\bt_spp.c)(0x60E998BB)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\bt_spp.o --omf_browse .\objects\bt_spp.crf --depend .\objects\bt_spp.d)
 I (..\..\component\bluetooth\src\include\classical\bt_spp.h)(0x60E81380)
 I (..\..\component\bluetooth\src\include\bt_common.h)(0x60E81380)
 I (..\stm32f10x_bb_bt\bt_config.h)(0x60E95A78)
@@ -2356,7 +2356,7 @@ I (..\..\component\bluetooth\src\include\bt_memp.h)(0x60E81380)
 I (..\..\component\bluetooth\src\include\bt_hci.h)(0x60E81380)
 I (..\..\component\bluetooth\vendor\bt_vendor_manager.h)(0x60E81380)
 I (board_wrapper.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_conf.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_adc.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\core\stm32f10x.h)(0x60E81380)
@@ -2410,7 +2410,7 @@ I (..\..\component\fs\fs_wrapper.h)(0x60E81380)
 I (..\..\component\fs\fatfs13\source\ff.h)(0x60E81380)
 I (..\..\component\fs\fatfs13\source\ffconf.h)(0x60E81380)
 I (..\..\component\ringbuffer\ringbuffer.h)(0x60E81380)
-F (.\main.c)(0x60E95C00)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x60EA3D1C)(--c99 --gnu -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\bsp\cortex-m3\core -I ..\..\bsp\cortex-m3\inc -I ..\..\bsp\cortex-m3\STM32_USB-FS-Device_Driver\inc -I ..\..\board -I ..\..\board\stm32f10x -I ..\..\board\stm32f10x\usb_mass_storage -I ..\..\component\ringbuffer -I ..\..\component\bluetooth\src\include -I ..\..\component\bluetooth\src\include\classical -I ..\..\component\bluetooth\vendor -I ..\stm32f10x_bb_bt -I ..\..\component\bluetooth\third_party_lib\sbc\sbc -I ..\..\component\bluetooth\wrapper -I ..\..\component\cjson -I ..\..\component\fs -I ..\..\component\fs\fatfs13\source -I ..\..\component\bluetooth\src\include\ble-IC:\Users\Administrator\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\1.0.5\Device\Include-D__UVISION_VERSION="535" -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_conf.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_adc.h)(0x60E81380)
@@ -2444,7 +2444,7 @@ I (..\..\bsp\cortex-m3\inc\stm32f10x_usart.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_wwdg.h)(0x60E81380)
 I (..\..\bsp\cortex-m3\inc\misc.h)(0x60E81380)
 I (board_wrapper.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\..\board\stm32f10x\hw_uart.h)(0x60E81380)
 I (..\..\board\stm32f10x\hw_systick.h)(0x60E81380)
@@ -2495,7 +2495,7 @@ I (..\..\component\fs\fatfs13\source\ffconf.h)(0x60E81380)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\..\component\fs\fatfs13\source\diskio.h)(0x60E81380)
 I (..\stm32f10x_bb_bt\board_wrapper.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_conf.h)(0x60E81380)
@@ -2567,7 +2567,7 @@ I (..\..\component\fs\fatfs13\source\ff.h)(0x60E81380)
 I (..\..\component\fs\fatfs13\source\ffconf.h)(0x60E81380)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (..\..\component\fs\fs_wrapper.h)(0x60E81380)
-I (..\..\board\stm32f10x\hw_misc.h)(0x60E81380)
+I (..\..\board\stm32f10x\hw_misc.h)(0x60EA3D56)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x60252374)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x6025237E)
 I (..\..\bsp\cortex-m3\inc\stm32f10x_conf.h)(0x60E81380)
