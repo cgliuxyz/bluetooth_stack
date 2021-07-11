@@ -140,7 +140,7 @@ static err_t bt_ass_eir_data(void)
     len = strlen(BT_LOCAL_NAME);
     eir_data[data_pos++] = len + 1;
     eir_data[data_pos++] = BT_DT_COMPLETE_LOCAL_NAME;
-    memcpy(eir_data+data_pos,BT_LOCAL_NAME,strlen(BT_LOCAL_NAME));
+    memcpy(eir_data + data_pos, BT_LOCAL_NAME, strlen(BT_LOCAL_NAME));
     data_pos += strlen(BT_LOCAL_NAME);
 #endif
 
@@ -162,7 +162,7 @@ static err_t bt_ass_eir_data(void)
     len += 2;
 #endif
 #if PROFILE_HID_ENABLE
-	len += 2;
+    len += 2;
 #endif
 
     eir_data[data_pos++] = len;
@@ -188,10 +188,9 @@ static err_t bt_ass_eir_data(void)
     eir_data[data_pos++] = (BT_SERVICE_CLASS_AV_REMOTE_CONTROL>>8) & 0xff;
 #endif
 #if PROFILE_HID_ENABLE
-	eir_data[data_pos++] = BT_SERVICE_CLASS_HUMAN_INTERFACE_DEVICE_SERVICE & 0xff;
-	eir_data[data_pos++] = (BT_SERVICE_CLASS_HUMAN_INTERFACE_DEVICE_SERVICE>>8) & 0xff;
+    eir_data[data_pos++] = BT_SERVICE_CLASS_HUMAN_INTERFACE_DEVICE_SERVICE & 0xff;
+    eir_data[data_pos++] = (BT_SERVICE_CLASS_HUMAN_INTERFACE_DEVICE_SERVICE>>8) & 0xff;
 #endif
-
 
     /* Device ID */
 #if PROFILE_DID_ENABLE
@@ -200,13 +199,12 @@ static err_t bt_ass_eir_data(void)
     eir_data[data_pos++] = DID_VENDOR_ID_SOURCE_VALUE & 0xff;
     eir_data[data_pos++] = (DID_VENDOR_ID_SOURCE_VALUE>>8) & 0xff;
     eir_data[data_pos++] = DID_VENDOR_ID_VALUE & 0xff;
-    eir_data[data_pos++] = (DID_VENDOR_ID_VALUE>>8) & 0xff;
+    eir_data[data_pos++] = (DID_VENDOR_ID_VALUE >> 8) & 0xff;
     eir_data[data_pos++] = DID_PRODUCT_ID_VALUE & 0xff;
-    eir_data[data_pos++] = (DID_PRODUCT_ID_VALUE>>8) & 0xff;
+    eir_data[data_pos++] = (DID_PRODUCT_ID_VALUE >> 8) & 0xff;
     eir_data[data_pos++] = DID_VERSION_ID_VALUE & 0xff;
-    eir_data[data_pos++] = (DID_VERSION_ID_VALUE>>8) & 0xff;
+    eir_data[data_pos++] = (DID_VERSION_ID_VALUE >> 8) & 0xff;
 #endif
-
 
     return 0;
 }
@@ -215,11 +213,18 @@ static err_t bt_inquiry_complete(uint16_t result);
 static err_t bt_inquiry_result(hci_inq_res_t *inqres);
 static err_t bt_get_remote_name_complete(struct bd_addr_t *bdaddr,uint8_t * name);
 
+/**
+*函数名：link_key_req
+*描   述：连接请求函数
+*参   数：bd_addr_t *addr 蓝牙mac
 
-static err_t  link_key_req(void *arg,struct bd_addr_t *bdaddr)
+*返回值：err_t 执行状态
+*注   意：无
+*/
+static err_t  link_key_req(void *arg, struct bd_addr_t *bdaddr)
 {
     printf("link key request,address is :");
-	bt_addr_dump(bdaddr->addr);
+    bt_addr_dump(bdaddr->addr);
     if(bd_addr_cmp(&(link_key_instance.remote_addr),bdaddr))
     {
         hci_link_key_request_reply(bdaddr,(uint8_t *)&(link_key_instance.link_key));
@@ -231,10 +236,18 @@ static err_t  link_key_req(void *arg,struct bd_addr_t *bdaddr)
     return 0;
 }
 
+/**
+*函数名：link_key_not
+*描   述：连接通知函数
+*参   数：bd_addr_t *addr 蓝牙mac
+
+*返回值：err_t 执行状态
+*注   意：无
+*/
 static err_t  link_key_not(void *arg, struct bd_addr_t *bdaddr, uint8_t *key,uint8_t key_type)
 {
     printf("link key notification,address is :");
-	bt_addr_dump(bdaddr->addr);
+    bt_addr_dump(bdaddr->addr);
     printf("link key notification,linkey is :");
     bt_hex_dump(key,16);
     printf("link key notification,key type is :%d\n",key_type);
@@ -253,7 +266,7 @@ err_t bt_stack_worked(void *arg)
 
     if(bt_wrapper_cb && bt_wrapper_cb->app_common_cb && bt_wrapper_cb->app_common_cb->bt_init_result)
     {
-        bt_wrapper_cb->app_common_cb->bt_init_result(BT_INIT_SUCCESS,bt_profile_mask);
+        bt_wrapper_cb->app_common_cb->bt_init_result(BT_INIT_SUCCESS, bt_profile_mask);
     }
 
     return 0;

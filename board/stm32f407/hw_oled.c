@@ -760,68 +760,65 @@ uint8_t hw_oled_draw_bmp(uint8_t col_start,uint8_t page_start,uint8_t col_end,ui
     return HW_ERR_OK;
 }
 
-
 /******************************************************************************
- *	函数名:	hw_oled_init
- * 参数:  	NULL
- * 返回值: 	oled init结果
- * 描述:		OLED的初始化，采用软件模拟IIC来驱动SSD1306，用到的PIN为:
- 				SSD1306_SDA_PIN-->IIC SDA,SSD1306_SCL_PIN-->IIC SCL
+ * 函数名: hw_oled_init
+ * 参数:      NULL
+ * 返回值:  oled init结果
+ * 描述:      OLED的初始化，采用软件模拟IIC来驱动SSD1306，用到的PIN为:
+            SSD1306_SDA_PIN-->IIC SDA,SSD1306_SCL_PIN-->IIC SCL
 ******************************************************************************/
 uint8_t hw_oled_init()
 {
     GPIO_InitTypeDef GPIO_InitStruct = {0};
 
-	SSD1306_PERIPH_CLK_ENABLE();
-	
-	GPIO_InitStruct.Pin = SSD1306_SCL_PIN|SSD1306_SDA_PIN;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(SSD1306_SCL_GPIO, &GPIO_InitStruct);
+    SSD1306_PERIPH_CLK_ENABLE();
 
-	HAL_GPIO_WritePin(SSD1306_SCL_GPIO, SSD1306_SCL_PIN,GPIO_PIN_SET);
-	HAL_GPIO_WritePin(SSD1306_SCL_GPIO, SSD1306_SDA_PIN,GPIO_PIN_SET);
+    GPIO_InitStruct.Pin = SSD1306_SCL_PIN|SSD1306_SDA_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(SSD1306_SCL_GPIO, &GPIO_InitStruct);
+
+    HAL_GPIO_WritePin(SSD1306_SCL_GPIO, SSD1306_SCL_PIN,GPIO_PIN_SET);
+    HAL_GPIO_WritePin(SSD1306_SCL_GPIO, SSD1306_SDA_PIN,GPIO_PIN_SET);
 
     /* 延时200ms */
     hw_delay_ms(200);
 
-    hw_oled_write_byte(oled_cmd_set_multiplex_ratio,OLED_CMD);			/* 设置复用率为32 */
+    hw_oled_write_byte(oled_cmd_set_multiplex_ratio,OLED_CMD);          /* 设置复用率为32 */
     hw_oled_write_byte(0x3F,OLED_CMD);
 
-    hw_oled_write_byte(oled_cmd_set_display_offset,OLED_CMD);			/* 设置偏移量为0 */
+    hw_oled_write_byte(oled_cmd_set_display_offset,OLED_CMD);           /* 设置偏移量为0 */
     hw_oled_write_byte(0x00,OLED_CMD);
 
-    hw_oled_write_byte(oled_cmd_set_start_line_lowset,OLED_CMD);		/* 设置起始行地址 */
+    hw_oled_write_byte(oled_cmd_set_start_line_lowset,OLED_CMD);        /* 设置起始行地址 */
 
-    hw_oled_write_byte(oled_cmd_set_remap1,OLED_CMD);					/* 设置重映射 */
+    hw_oled_write_byte(oled_cmd_set_remap1,OLED_CMD);                   /* 设置重映射 */
 
-    hw_oled_write_byte(oled_cmd_set_com_remap_scan,OLED_CMD);		/* 设置从COM[N-1]扫描到COM0 */
+    hw_oled_write_byte(oled_cmd_set_com_remap_scan,OLED_CMD);           /* 设置从COM[N-1]扫描到COM0 */
 
-    hw_oled_write_byte(oled_cmd_set_compin_hw_conf,OLED_CMD);		/* 设置列引脚硬件配置 */
+    hw_oled_write_byte(oled_cmd_set_compin_hw_conf,OLED_CMD);           /* 设置列引脚硬件配置 */
     hw_oled_write_byte(0x12,OLED_CMD);
 
-    hw_oled_write_byte(oled_cmd_contrast,OLED_CMD);						/* 设置对比度为 */
+    hw_oled_write_byte(oled_cmd_contrast,OLED_CMD);                     /* 设置对比度为 */
     hw_oled_write_byte(0xff,OLED_CMD);
 
     hw_oled_write_byte(oled_cmd_entire_display_on_with_ram,OLED_CMD);
 
-    hw_oled_write_byte(oled_cmd_normal_display,OLED_CMD);				/* 设置为正常显示 */
+    hw_oled_write_byte(oled_cmd_normal_display,OLED_CMD);               /* 设置为正常显示 */
 
-    hw_oled_write_byte(oled_cmd_set_clk_div_osc_freq,OLED_CMD);		/* 设置显示时钟分频值/震荡频率 */
+    hw_oled_write_byte(oled_cmd_set_clk_div_osc_freq,OLED_CMD);         /* 设置显示时钟分频值/震荡频率 */
     hw_oled_write_byte(0x80,OLED_CMD);
 
     hw_oled_write_byte(oled_cmd_set_charge_pump,OLED_CMD);
     hw_oled_write_byte(0x14,OLED_CMD);
 
-    hw_oled_write_byte(oled_cmd_display_on,OLED_CMD);					/* 启动显示 */
+    hw_oled_write_byte(oled_cmd_display_on,OLED_CMD);                   /* 启动显示 */
 
     hw_oled_clear();
 
     return HW_ERR_OK;
-
 }
-
 
 /******************************************************************************
  *	函数名:	protocol_iic_start

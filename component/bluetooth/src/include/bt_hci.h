@@ -822,7 +822,7 @@ typedef struct
     /* Host to host controller flow control */
     uint8_t numcmd; /* Number of command packets that the host controller (Bluetooth module)can buffer */
     uint16_t acl_maxsize; /* Maximum length of the data portion of each HCI ACL data packet that the Host Controller is able to accept */
-	uint16_t controler_max_acl;
+    uint16_t controler_max_acl;
     uint16_t controller_num_acl; /* Number of ACL packets that the Bluetooth module can buffer */
 
     /* Host controller to host flow control */
@@ -832,22 +832,22 @@ typedef struct
     hci_inq_res_t *ires; /* Results of an inquiry */
 
     uint8_t le_inq_w2_stop;
-	pin_req_fun_cb pin_req;
+    pin_req_fun_cb pin_req;
     bt_working_fun_cb bt_working;
     sco_conn_req_fun_cb sco_conn_req;
     sco_conn_complete_fun_cb sco_conn_complete;
     sco_disconn_complete_fun_cb sco_disconn_complete;
-	inq_result_fun_cb inq_result;
-	inq_complete_fun_cb inq_complete;
-	le_inq_result_fun_cb le_inq_result;
-	le_inq_complete_fun_cb le_inq_complete;
-	name_req_complete_fun_cb name_req_complete;
-	rbd_complete_fun_cb rbd_complete;
-	link_key_not_fun_cb link_key_not;
-	link_key_req_fun_cb link_key_req;
-	wlp_complete_fun_cb wlp_complete;
-	conn_complete_fun_cb conn_complete;
-	cmd_complete_fun_cb cmd_complete;
+    inq_result_fun_cb inq_result;
+    inq_complete_fun_cb inq_complete;
+    le_inq_result_fun_cb le_inq_result;
+    le_inq_complete_fun_cb le_inq_complete;
+    name_req_complete_fun_cb name_req_complete;
+    rbd_complete_fun_cb rbd_complete;
+    link_key_not_fun_cb link_key_not;
+    link_key_req_fun_cb link_key_req;                   /*  */
+    wlp_complete_fun_cb wlp_complete;
+    conn_complete_fun_cb conn_complete;
+    cmd_complete_fun_cb cmd_complete;
 }hci_pcb_t;
 
 

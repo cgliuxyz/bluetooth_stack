@@ -23,11 +23,11 @@ uint8_t hw_led_init()
     LED2_PERIPH_CLK_ENABLE();
 
     /*Configure GPIO pins : LED1_Pin LED2_Pin */
-  GPIO_InitStruct.Pin = LED1_PIN|LED2_PIN;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(LED1_GPIO, &GPIO_InitStruct);
+    GPIO_InitStruct.Pin = LED1_PIN|LED2_PIN;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(LED1_GPIO, &GPIO_InitStruct);
 
     LED1_OFF;
     LED2_OFF;

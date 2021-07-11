@@ -242,7 +242,6 @@ void phybusif_output(struct bt_pbuf_t *p, uint16_t len,uint8_t packet_type)
 }
 
 
-
 err_t phybusif_input(struct phybusif_cb *cb)
 {
 

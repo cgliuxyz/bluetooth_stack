@@ -22,15 +22,13 @@ static uint8_t sht2x_protocol_iic_read_byte(uint8_t ack);
 
 uint8_t hw_sht2x_init(void)
 {
-	
+    SHT2X_PERIPH_CLK_ENABLE();
 
-	SHT2X_PERIPH_CLK_ENABLE();
-	
     GPIO_InitStruct.Pin =SHT2X_SCL_PIN|SHT2X_SDA_PIN;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(SHT2X_SCL_GPIO, &GPIO_InitStruct);
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(SHT2X_SCL_GPIO, &GPIO_InitStruct);
     SHT2X_IIC_SCLK_HIGH;
     SHT2X_IIC_SDIN_HIGH;
 

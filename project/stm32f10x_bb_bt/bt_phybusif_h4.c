@@ -178,11 +178,9 @@ void USART2_IRQHandler(void)
 ******************************************************************************/
 void bt_uart_test()
 {
-    uint8_t hci_reset[4] = {0x01,0x03,0x0c,0x00};
+    uint8_t hci_reset[4] = {0x01, 0x03, 0x0c, 0x00};
     uart_bt_send(hci_reset,4);
 }
-
-
 
 err_t phybusif_reset(struct phybusif_cb *cb)
 {
@@ -193,9 +191,11 @@ err_t phybusif_reset(struct phybusif_cb *cb)
         BT_TRANSPORT_TRACE_ERROR("ERROR:file[%s],function[%s],line[%d] bt_pbuf_alloc fail\n",__FILE__,__FUNCTION__,__LINE__);
         return BT_ERR_MEM; /* Could not allocate memory for bt_pbuf_t */
     }
-    cb->q = cb->p; /* Make p the pointer to the head of the bt_pbuf_t chain and q to the tail */
 
+    /* Make p the pointer to the head of the bt_pbuf_t chain and q to the tail */
+    cb->q = cb->p;
     cb->state = W4_PACKET_TYPE;
+
     return BT_ERR_OK;
 }
 
@@ -265,109 +265,118 @@ void phybusif_output(struct bt_pbuf_t *p, uint16_t len,uint8_t packet_type)
 }
 
 
-
+/**
+*函数名：phybusif_input
+*描   述：外设总线数据处理
+*参   数：phybusif_cb *cb 总线控制块
+*返回值：err_t 执行状态
+*注   意：无
+*/
 err_t phybusif_input(struct phybusif_cb *cb)
 {
-
     while(!ringbuffer_is_empty(&bt_ring_buf))
     {
-        //printf("state %d\n",cb->state);
-
+        printf("state %d\n",cb->state);
         switch(cb->state)
         {
-        case W4_PACKET_TYPE:
-        {
-            uint8_t packet_type = 0;
+            case W4_PACKET_TYPE:
+            {
+                uint8_t packet_type = 0;
 
-            ringbuffer_get(&bt_ring_buf,&packet_type,1);
-            //printf("+++++++++++++packet_type 0x%x\n",packet_type);
-            switch(packet_type)
-            {
-            case PHYBUSIF_PACKET_TYPE_EVT:
-            {
-                cb->state = W4_EVENT_HDR;
+                ringbuffer_get(&bt_ring_buf, &packet_type,1);
+                printf("+++++++++++++packet_type 0x%x\n", packet_type);
+                switch(packet_type)
+                {
+                    case PHYBUSIF_PACKET_TYPE_EVT:
+                    {
+                        cb->state = W4_EVENT_HDR;
+                        break;
+                    }
+                    case PHYBUSIF_PACKET_TYPE_ACL_DATA:
+                    {
+                        cb->state = W4_ACL_HDR;
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+                }
+
                 break;
             }
-            case PHYBUSIF_PACKET_TYPE_ACL_DATA:
+            case W4_EVENT_HDR:
             {
-                cb->state = W4_ACL_HDR;
+                if(ringbuffer_len(&bt_ring_buf) < HCI_EVT_HDR_LEN)
+                {
+                    return BT_ERR_BUF;
+                }
+
+                ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload,HCI_EVT_HDR_LEN);
+                cb->evhdr = cb->p->payload;
+                if(cb->evhdr->len > PBUF_POOL_BUFSIZE)
+                {
+                    bt_pbuf_free(cb->p);
+                    printf("!!!!!!!!!left %d\n",ringbuffer_space_left(&bt_ring_buf));
+                    printf("!!!!!!!!!!!wp %d,rp %d\n",ringbuffer_get_write_pos(&bt_ring_buf),ringbuffer_get_read_pos(&bt_ring_buf));
+                    phybusif_reset(cb);
+                }
+                cb->state = W4_EVENT_PARAM;
+                break;
+            }
+            case W4_ACL_HDR:
+            {
+                if(ringbuffer_space_left(&bt_ring_buf) < HCI_ACL_HDR_LEN)
+                {
+                    return BT_ERR_BUF;
+                }
+
+                ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload,HCI_ACL_HDR_LEN);
+                cb->aclhdr = cb->p->payload;
+                if(cb->aclhdr->len > PBUF_POOL_BUFSIZE)
+                {
+                    bt_pbuf_free(cb->p);
+
+                    printf("!!!!!!!!!left %d\n",ringbuffer_space_left(&bt_ring_buf));
+                    printf("!!!!!!!!!!!wp %d,rp %d\n",ringbuffer_get_write_pos(&bt_ring_buf),ringbuffer_get_read_pos(&bt_ring_buf));
+                    phybusif_reset(cb);
+                }
+                cb->state = W4_ACL_DATA;
+                break;
+            }
+            case W4_EVENT_PARAM:
+            {
+                printf("W4_EVENT_PARAM %d\n",cb->evhdr->len);
+                if(ringbuffer_space_left(&bt_ring_buf) < cb->evhdr->len)
+                {
+                    printf("+++++++W4_EVENT_PARAM left %d,event size %d\n",ringbuffer_space_left(&bt_ring_buf),cb->evhdr->len);
+                    return BT_ERR_BUF;
+                }
+
+                ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload+HCI_EVT_HDR_LEN,cb->evhdr->len);
+                hci_event_input(cb->p);
+                bt_pbuf_free(cb->p);
+                phybusif_reset(cb);
+                break;
+            }
+            case W4_ACL_DATA:
+            {
+                if(ringbuffer_space_left(&bt_ring_buf) < cb->aclhdr->len)
+                {
+                    printf("+++++++W4_ACL_DATA left %d,acl size %d\n",ringbuffer_space_left(&bt_ring_buf),cb->aclhdr->len);
+                    return BT_ERR_BUF;
+                }
+
+                ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload+HCI_ACL_HDR_LEN,cb->aclhdr->len);
+                hci_acl_input(cb->p);
+                bt_pbuf_free(cb->p);
+                phybusif_reset(cb);
                 break;
             }
             default:
                 break;
-            }
-            break;
         }
-        case W4_EVENT_HDR:
-        {
-            if(ringbuffer_len(&bt_ring_buf) < HCI_EVT_HDR_LEN)
-            {
-                return BT_ERR_BUF;
-            }
-
-            ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload,HCI_EVT_HDR_LEN);
-            cb->evhdr = cb->p->payload;
-            if(cb->evhdr->len > PBUF_POOL_BUFSIZE)
-            {
-                bt_pbuf_free(cb->p);
-                printf("!!!!!!!!!left %d\n",ringbuffer_space_left(&bt_ring_buf));
-                printf("!!!!!!!!!!!wp %d,rp %d\n",ringbuffer_get_write_pos(&bt_ring_buf),ringbuffer_get_read_pos(&bt_ring_buf));
-                phybusif_reset(cb);
-            }
-            cb->state = W4_EVENT_PARAM;
-            break;
-        }
-        case W4_ACL_HDR:
-        {
-            if(ringbuffer_space_left(&bt_ring_buf) < HCI_ACL_HDR_LEN)
-            {
-                return BT_ERR_BUF;
-            }
-
-            ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload,HCI_ACL_HDR_LEN);
-            cb->aclhdr = cb->p->payload;
-            if(cb->aclhdr->len > PBUF_POOL_BUFSIZE)
-            {
-                bt_pbuf_free(cb->p);
-
-                printf("!!!!!!!!!left %d\n",ringbuffer_space_left(&bt_ring_buf));
-                printf("!!!!!!!!!!!wp %d,rp %d\n",ringbuffer_get_write_pos(&bt_ring_buf),ringbuffer_get_read_pos(&bt_ring_buf));
-                phybusif_reset(cb);
-            }
-            cb->state = W4_ACL_DATA;
-            break;
-        }
-        case W4_EVENT_PARAM:
-        {
-			//printf("W4_EVENT_PARAM %d\n",cb->evhdr->len);
-            if(ringbuffer_space_left(&bt_ring_buf) < cb->evhdr->len)
-            {
-                printf("+++++++W4_EVENT_PARAM left %d,event size %d\n",ringbuffer_space_left(&bt_ring_buf),cb->evhdr->len);
-                return BT_ERR_BUF;
-            }
-            ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload+HCI_EVT_HDR_LEN,cb->evhdr->len);
-            hci_event_input(cb->p);
-            bt_pbuf_free(cb->p);
-            phybusif_reset(cb);
-            break;
-        }
-        case W4_ACL_DATA:
-        {
-            if(ringbuffer_space_left(&bt_ring_buf) < cb->aclhdr->len)
-            {
-                printf("+++++++W4_ACL_DATA left %d,acl size %d\n",ringbuffer_space_left(&bt_ring_buf),cb->aclhdr->len);
-                return BT_ERR_BUF;
-            }
-            ringbuffer_get(&bt_ring_buf,(uint8_t *)cb->p->payload+HCI_ACL_HDR_LEN,cb->aclhdr->len);
-            hci_acl_input(cb->p);
-            bt_pbuf_free(cb->p);
-            phybusif_reset(cb);
-            break;
-        }
-        default:
-            break;
-        }
-
     }
+
     return BT_ERR_OK;
 }

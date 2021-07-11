@@ -154,6 +154,7 @@ err_t hci_init(void)
     hci_pcb->pincode = (uint8_t *)BT_PIN_CODE;
 
     hci_register_pin_req(_hci_pin_req_handle);
+
     /* Clear globals */
     hci_active_links = NULL;
     hci_tmp_link = NULL;
@@ -904,7 +905,7 @@ static err_t _hci_vendor_evt_process(uint8_t *payload,uint16_t payload_len)
 
 static err_t _hci_init_cmd_compl_process(uint8_t *payload,uint16_t payload_len)
 {
-    uint16_t opcode = bt_le_read_16(payload,1);
+    uint16_t opcode = bt_le_read_16(payload, 1);
 
 
     BT_HCI_TRACE_DEBUG("_hci_init_cmd_compl_process:0x%x\n",opcode);
@@ -917,145 +918,147 @@ static err_t _hci_init_cmd_compl_process(uint8_t *payload,uint16_t payload_len)
 
     switch(opcode)
     {
-    case HCI_OP_RESET:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_RESET\n");
-        utimer_cancel(hci_pcb->timer);
-        if (hci_pcb->vendor_init_status == VENDOR_NOT_INIT)
+        case HCI_OP_RESET:
         {
-            if(hci_pcb->chip_mgr != NULL)
-                _hci_vendor_init(HCI_OGF(opcode),HCI_OCF(opcode));
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_RESET\n");
+            utimer_cancel(hci_pcb->timer);
+            if (hci_pcb->vendor_init_status == VENDOR_NOT_INIT)
+            {
+                if(hci_pcb->chip_mgr != NULL)
+                    _hci_vendor_init(HCI_OGF(opcode),HCI_OCF(opcode));
+            }
+            else
+            {
+                hci_read_local_version_info();
+            }
+
+            break;
         }
-        else
+        case HCI_OP_READ_LOCAL_VERSION_INFO:
         {
-            hci_read_local_version_info();
+            uint8_t hci_version = payload[4];
+            uint16_t hci_reversion = bt_le_read_16(payload,5);
+            uint8_t lmp_version = payload[7];
+            uint16_t manufacturer_name = bt_le_read_16(payload,8);
+            uint16_t lmp_subversion = bt_le_read_16(payload,10);
+
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_READ_LOCAL_VERSION_INFO\n");
+            BT_HCI_TRACE_DEBUG("DEBUG:HCI version:0x%x\n",hci_version);
+            BT_HCI_TRACE_DEBUG("DEBUG:HCI reversion:0x%x\n",hci_reversion);
+            BT_HCI_TRACE_DEBUG("DEBUG:LMP version:0x%x\n",lmp_version);
+            BT_HCI_TRACE_DEBUG("DEBUG:LMP reversion:0x%x\n",lmp_subversion);
+            BT_HCI_TRACE_DEBUG("DEBUG:manufacturer_name:0x%x\n",manufacturer_name);
+
+            hci_read_buffer_size();
+            break;
         }
-
-        break;
-    }
-    case HCI_OP_READ_LOCAL_VERSION_INFO:
-    {
-        uint8_t hci_version = payload[4];
-        uint16_t hci_reversion = bt_le_read_16(payload,5);
-        uint8_t lmp_version = payload[7];
-        uint16_t manufacturer_name = bt_le_read_16(payload,8);
-        uint16_t lmp_subversion = bt_le_read_16(payload,10);
-
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_READ_LOCAL_VERSION_INFO\n");
-        BT_HCI_TRACE_DEBUG("DEBUG:HCI version:0x%x\n",hci_version);
-        BT_HCI_TRACE_DEBUG("DEBUG:HCI reversion:0x%x\n",hci_reversion);
-        BT_HCI_TRACE_DEBUG("DEBUG:LMP version:0x%x\n",lmp_version);
-        BT_HCI_TRACE_DEBUG("DEBUG:LMP reversion:0x%x\n",lmp_subversion);
-        BT_HCI_TRACE_DEBUG("DEBUG:manufacturer_name:0x%x\n",manufacturer_name);
-
-        hci_read_buffer_size();
-        break;
-    }
-    case HCI_OP_READ_BUFFER_SIZE:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_READ_BUFFER_SIZE\n");
+        case HCI_OP_READ_BUFFER_SIZE:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_READ_BUFFER_SIZE\n");
 
 
-        hci_pcb->acl_maxsize = bt_le_read_16(payload,4); /* Maximum size of an ACL packet that the BT module is able to accept */
-        hci_pcb->controller_num_acl = bt_le_read_16(payload,7); /* Number of ACL packets that the BT module can buffer */
-        hci_pcb->controler_max_acl = hci_pcb->controller_num_acl;
-        BT_HCI_TRACE_DEBUG("Max ACL size(%d)\n",hci_pcb->acl_maxsize);
-        BT_HCI_TRACE_DEBUG("Max ACL count(%d)\n",hci_pcb->controller_num_acl);
-        hci_read_bd_addr(read_bdaddr_complete);
-        break;
-    }
-    case HCI_OP_READ_BD_ADDR:
-    {
-        struct bd_addr_t *bdaddr = (void *)(payload + 4);
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_READ_BD_ADDR\n");
-        memcpy(hci_pcb->local_bd_addr.addr,bdaddr,BD_ADDR_LEN);
+            hci_pcb->acl_maxsize = bt_le_read_16(payload,4); /* Maximum size of an ACL packet that the BT module is able to accept */
+            hci_pcb->controller_num_acl = bt_le_read_16(payload,7); /* Number of ACL packets that the BT module can buffer */
+            hci_pcb->controler_max_acl = hci_pcb->controller_num_acl;
+            BT_HCI_TRACE_DEBUG("Max ACL size(%d)\n",hci_pcb->acl_maxsize);
+            BT_HCI_TRACE_DEBUG("Max ACL count(%d)\n",hci_pcb->controller_num_acl);
+            hci_read_bd_addr(read_bdaddr_complete);
+            break;
+        }
+        case HCI_OP_READ_BD_ADDR:
+        {
+            struct bd_addr_t *bdaddr = (void *)(payload + 4);
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_READ_BD_ADDR\n");
+            memcpy(hci_pcb->local_bd_addr.addr,bdaddr,BD_ADDR_LEN);
 
-        HCI_EVENT_RBD_COMPLETE(hci_pcb, bdaddr); /* Notify application.*/
-        hci_write_cod((uint8_t *)&hci_pcb->class_of_device);
-        break;
-    }
-    case HCI_OP_WRITE_CLASS_OF_DEVICE:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_CLASS_OF_DEVICE\n");
-        hci_write_local_name((uint8_t *)hci_pcb->local_name, strlen((const char*)hci_pcb->local_name));
-        break;
-    }
-    case HCI_OP_CHANGE_LOCAL_NAME:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_CHANGE_LOCAL_NAME\n");
-        hci_write_page_timeout(BT_PAGE_TIMEOUT); /* value*0.625ms */
-        break;
-    }
-    case HCI_OP_WRITE_PAGE_TOUT:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_PAGE_TOUT\n");
+            HCI_EVENT_RBD_COMPLETE(hci_pcb, bdaddr); /* Notify application.*/
+            hci_write_cod((uint8_t *)&hci_pcb->class_of_device);
+            break;
+        }
+        case HCI_OP_WRITE_CLASS_OF_DEVICE:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_CLASS_OF_DEVICE\n");
+            hci_write_local_name((uint8_t *)hci_pcb->local_name, strlen((const char*)hci_pcb->local_name));
+            break;
+        }
+        case HCI_OP_CHANGE_LOCAL_NAME:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_CHANGE_LOCAL_NAME\n");
+            hci_write_page_timeout(BT_PAGE_TIMEOUT); /* value*0.625ms */
+            break;
+        }
+        case HCI_OP_WRITE_PAGE_TOUT:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_PAGE_TOUT\n");
 #if BT_BLE_ENABLE > 0
-        hci_set_event_mask(0xffffffff,0x3FFFFFFF);
+            hci_set_event_mask(0xffffffff,0x3FFFFFFF);
 #else
-        hci_set_event_mask(0xffffffff, 0x1FFFFFFF); /* base 0x1FFFFFFF:Add LE Meta event(bit 61) */
+            hci_set_event_mask(0xffffffff, 0x1FFFFFFF); /* base 0x1FFFFFFF:Add LE Meta event(bit 61) */
 #endif
-        break;
-    }
-    case HCI_OP_SET_EVENT_MASK:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_SET_EVENT_MASK\n");
-        hci_write_ssp_mode(hci_pcb->ssp_enable);
-        break;
-    }
-    case HCI_OP_WRITE_SIMPLE_PAIRING_MODE:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_SIMPLE_PAIRING_MODE\n");
-        hci_write_inquiry_mode(INQUIRY_MODE_EIR);
-        break;
-    }
-    case HCI_OP_WRITE_INQUIRY_MODE:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_INQUIRY_MODE\n");
+            break;
+        }
+        case HCI_OP_SET_EVENT_MASK:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_SET_EVENT_MASK\n");
+            hci_write_ssp_mode(hci_pcb->ssp_enable);
+            break;
+        }
+        case HCI_OP_WRITE_SIMPLE_PAIRING_MODE:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_SIMPLE_PAIRING_MODE\n");
+            hci_write_inquiry_mode(INQUIRY_MODE_EIR);
+            break;
+        }
+        case HCI_OP_WRITE_INQUIRY_MODE:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_INQUIRY_MODE\n");
 #if BT_BLE_ENABLE > 0
-        hci_write_le_enable(1,0);
+            hci_write_le_enable(1,0);
 #else
-        hci_write_scan_enable(HCI_SCAN_EN_INQUIRY | HCI_SCAN_EN_PAGE);
+            hci_write_scan_enable(HCI_SCAN_EN_INQUIRY | HCI_SCAN_EN_PAGE);
 #endif
-        break;
-    }
-    case HCI_OP_WRITE_SCAN_ENABLE:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_SCAN_ENABLE\n");
-        if(hci_pcb->init_status == BLUETOOTH_INITING)
-            HCI_BT_WORKING(hci_pcb);
-        hci_pcb->init_status = BLUETOOTH_WORKING;
-        break;
-    }
+            break;
+        }
+        case HCI_OP_WRITE_SCAN_ENABLE:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_SCAN_ENABLE\n");
+            if(hci_pcb->init_status == BLUETOOTH_INITING)
+                HCI_BT_WORKING(hci_pcb);
+            hci_pcb->init_status = BLUETOOTH_WORKING;
+            break;
+        }
 #if BT_BLE_ENABLE > 0
-    case HCI_OP_WRITE_LE_SUPPORT:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_LE_SUPPORT\n");
-        hci_le_set_event_mask(0xff,0x0); /* some bt modem back invalid commmand para,do not care,skip it */
-        break;
-    }
-    case HCI_OP_BLE_SET_EVENT_MASK:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_BLE_SET_EVENT_MASK\n");
-        hci_le_read_buffer_size();
+        case HCI_OP_WRITE_LE_SUPPORT:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_WRITE_LE_SUPPORT\n");
+            hci_le_set_event_mask(0xff,0x0); /* some bt modem back invalid commmand para,do not care,skip it */
+            break;
+        }
+        case HCI_OP_BLE_SET_EVENT_MASK:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_BLE_SET_EVENT_MASK\n");
+            hci_le_read_buffer_size();
 
-        break;
-    }
-    case HCI_OP_BLE_READ_BUFFER_SIZE:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_BLE_READ_BUFFER_SIZE\n");
-        hci_le_read_local_support_feature();
+            break;
+        }
+        case HCI_OP_BLE_READ_BUFFER_SIZE:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_BLE_READ_BUFFER_SIZE\n");
+            hci_le_read_local_support_feature();
 
-        break;
-    }
-    case HCI_OP_BLE_READ_LOCAL_SPT_FEAT:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_OP_BLE_READ_LOCAL_SPT_FEAT\n");
-        hci_write_scan_enable(HCI_SCAN_EN_INQUIRY | HCI_SCAN_EN_PAGE);
-        break;
-    }
+            break;
+        }
+        case HCI_OP_BLE_READ_LOCAL_SPT_FEAT:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_OP_BLE_READ_LOCAL_SPT_FEAT\n");
+            hci_write_scan_enable(HCI_SCAN_EN_INQUIRY | HCI_SCAN_EN_PAGE);
+            break;
+        }
 #endif
-    default:
-        break;
+        default:
+        {
+            break;
+        }        
     }
     return BT_ERR_OK;
 }
@@ -1246,28 +1249,28 @@ static err_t _hci_init_process(struct bt_pbuf_t *p)
     BT_HCI_TRACE_DEBUG("_hci_init_process:\n");
     //bt_hex_dump(p->payload,evt_hdr->len+HCI_EVT_HDR_LEN);
 
-
     switch(evt_hdr->code)
     {
-    case HCI_COMMAND_COMPLETE:
-    {
-        bt_pbuf_header(p, -HCI_EVT_HDR_LEN); /* offset to para */
-        _hci_init_cmd_compl_process(p->payload,evt_hdr->len);
-        break;
-    }
-    case HCI_VENDOR_SPEC:
-    {
-        BT_HCI_TRACE_DEBUG("Init recv HCI_VENDOR_SPEC\n");
-        _hci_vendor_init(HCI_OGF(HCI_OP_NONE),HCI_OCF(HCI_OP_NONE));
-        break;
-    }
-    default:
-        break;
+        case HCI_COMMAND_COMPLETE:
+        {
+            bt_pbuf_header(p, -HCI_EVT_HDR_LEN); /* offset to para */
+            _hci_init_cmd_compl_process(p->payload, evt_hdr->len);
+            break;
+        }
+        case HCI_VENDOR_SPEC:
+        {
+            BT_HCI_TRACE_DEBUG("Init recv HCI_VENDOR_SPEC\n");
+            _hci_vendor_init(HCI_OGF(HCI_OP_NONE),HCI_OCF(HCI_OP_NONE));
+            break;
+        }
+        default:
+        {
+            break;
+        }
     }
 
     return BT_ERR_OK;
 }
-
 
 
 void hci_event_input(struct bt_pbuf_t *p)
@@ -2899,13 +2902,17 @@ err_t hci_write_eir(uint8_t *eir_data)
         BT_HCI_TRACE_ERROR("ERROR:file[%s],function[%s],line[%d] bt_pbuf_alloc fail\n",__FILE__,__FUNCTION__,__LINE__);
         return BT_ERR_MEM;
     }
+    
     /* Assembling command packet */
     p = hci_cmd_ass(p, HCI_WRITE_EIR, HCI_HOST_C_N_BB, HCI_WRITE_EIR_PLEN);
+    
     /* Assembling cmd prameters */
     ((uint8_t *)p->payload)[3] = 0x01; /* FEC is required */
-    memset(((uint8_t *)p->payload)+4,0,240);
-    memcpy(((uint8_t *)p->payload)+4,eir_data,240);
-    phybusif_output(p, p->tot_len,PHYBUSIF_PACKET_TYPE_CMD);
+    
+    memset(((uint8_t *)p->payload) + 4, 0, 240);
+    memcpy(((uint8_t *)p->payload) + 4, eir_data, 240);
+    
+    phybusif_output(p, p->tot_len, PHYBUSIF_PACKET_TYPE_CMD);
     bt_pbuf_free(p);
 
     return BT_ERR_OK;

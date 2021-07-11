@@ -1770,6 +1770,13 @@ uint8_t shell_parse(uint8_t *shell_string)
 
 }
 
+/**
+*函数名：bt_reset_chip
+*描   述：重置蓝牙扩展芯片
+*参   数：无
+*返回值：无
+*注   意：无
+*/
 void bt_reset_chip(void)
 {
     GPIO_InitTypeDef  GPIO_InitStructure;
@@ -1781,6 +1788,7 @@ void bt_reset_chip(void)
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_10MHz;
     GPIO_Init(GPIOA, &GPIO_InitStructure);
 
+    /* 疑问:这里对应8311_VREF_EN,具体是怎么重置的? */
     GPIO_WriteBit(GPIOA, GPIO_Pin_8, Bit_RESET);
     hw_delay_ms(200);
     GPIO_WriteBit(GPIOA, GPIO_Pin_8, Bit_SET);
@@ -1790,28 +1798,50 @@ void board_init()
     last_sys_time = sys_time;
     utimer_init();
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);
-    hw_uart_debug_init(115200);
-    hw_systick_init(SystemCoreClock/CONF_BSP_TICKS_PER_SEC);
 
+    /* 串口初始化 */
+    hw_uart_debug_init(115200);
+
+    /* 系统时钟初始化,基准频率为72MHz */
+    hw_systick_init(SystemCoreClock / CONF_BSP_TICKS_PER_SEC);
+
+    /* 按键初始化 */
     hw_button_init();
+
+    /* LED初始化 */
     hw_led_init();
+
+    /* OLED初始化 */
     hw_oled_init();
+
+    /*IIC初始化*/
     hw_sht2x_init();
+
+    /* SPI Flash初始化 */
     hw_spi_flash_init();
+
+    /* USB初始化 */
     hw_usb_init();
+
+    /* 文件系统初始化 */
     file_system_init();
+
+    /* 重置蓝牙扩展芯片 */
     bt_reset_chip();
 }
 
-
-
+/*
+*函数名：SysTick_Handler
+*描   述：滴答定时器中断处理函数
+*参   数：
+*返回值：err_t 执行状态
+*注   意：无
+*/
 void SysTick_Handler(void)
 {
-    sys_time += 1000/CONF_BSP_TICKS_PER_SEC;
+    sys_time += 1000 / CONF_BSP_TICKS_PER_SEC;
     utimer_polling();
 }
-
-
 
 extern struct phybusif_cb uart_if;
 int main()
@@ -1821,15 +1851,19 @@ int main()
 
     while(1)
     {
-
         //NVIC_DisableIRQ(USART2_IRQn);
+        
+        /* 外设总线消息处理 */
         phybusif_input(&uart_if);
+
         //NVIC_EnableIRQ(USART2_IRQn);
 
         if(sys_time - last_sys_time > 1000)
         {
             //printf("bt stack running\n");
             last_sys_time = sys_time;
+
+            /* 两个定时器处理? */
             l2cap_tmr();
             rfcomm_tmr();
 
@@ -1848,3 +1882,4 @@ int main()
         }
     }
 }
+

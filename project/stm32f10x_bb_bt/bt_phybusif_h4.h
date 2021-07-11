@@ -55,7 +55,6 @@ struct phybusif_cb
 
     hci_evt_hdr_t *evhdr;
     hci_acl_hdr_t *aclhdr;
-
 };
 
 #endif

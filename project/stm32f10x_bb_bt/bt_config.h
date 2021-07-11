@@ -57,15 +57,15 @@
 
 /*********** debug switch *****************************************************************************************************/
 /*****************************************************************************
-			BT_TRACE_LEVEL_NONE->0  BT_TRACE_LEVEL_ERROR->1
-			BT_TRACE_LEVEL_WARNING->2   BT_TRACE_LEVEL_DEBUG->3
+BT_TRACE_LEVEL_NONE->0  BT_TRACE_LEVEL_ERROR->1
+BT_TRACE_LEVEL_WARNING->2   BT_TRACE_LEVEL_DEBUG->3
 ******************************************************************************/
 #define BT_DEBUG printf
 #define BT_HEX_TRACE_LEVEL 1
 #define BT_PBUF_TRACE_LEVEL 0
 #define BT_MEMORY_TRACE_LEVEL 0
 #define BT_SNOOP_TRACE_LEVEL 0
-#define BT_TRANSPORT_TRACE_LEVEL 0
+#define BT_TRANSPORT_TRACE_LEVEL 3
 #define BT_VENDOR_TRACE_LEVEL 0
 #define BT_HCI_TRACE_LEVEL 0
 #define BT_L2CAP_TRACE_LEVEL 0
@@ -77,7 +77,7 @@
 #define BT_PBAP_TRACE_LEVEL 0
 #define BT_MAP_TRACE_LEVEL 0
 #define BT_DID_TRACE_LEVEL 0
-#define BT_SPP_TRACE_LEVEL 0
+#define BT_SPP_TRACE_LEVEL 3
 #define BT_AVDTP_TRACE_LEVEL 3
 #define BT_AVCTP_TRACE_LEVEL 3
 #define BT_A2DP_TRACE_LEVEL 3
