@@ -25,6 +25,7 @@
 
 #define BT_INFO_PRINT (printf("[%s] [%s-%u]",__TIME__, __FILE__, __LINE__), printf) 
 
+
 #define hw_memset 	memset
 #define hw_memcpy	memcpy
 #define hw_memcmp	memcmp
