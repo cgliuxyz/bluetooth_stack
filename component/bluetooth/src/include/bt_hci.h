@@ -270,19 +270,16 @@
 #define HCI_OP_BLE_LTK_REQ_NEG_REPLY       (0x001B | HCI_GRP_BLE_CMDS)
 #define HCI_OP_BLE_READ_SUPPORTED_STATES   (0x001C | HCI_GRP_BLE_CMDS)
 
-
-
-
 /* Opcode Group Field (OGF) values */
-#define HCI_NOP_OGF 0x00
-#define HCI_LINK_CONTROL 0x01   /* Link Control Commands */
-#define HCI_LINK_POLICY 0x02    /* Link Policy Commands */
-#define HCI_HOST_C_N_BB 0x03    /* Host Controller & Baseband Commands */
-#define HCI_INFO_PARAM 0x04     /* Informational Parameters */
-#define HCI_STATUS_PARAM 0x05   /* Status Parameters */
-#define HCI_TESTING 0x06        /* Testing Commands */
-#define HCI_LE	0x08 /* BLE cmd */
-#define HCI_VENDOR_OGF 0x3F /* vendor Commands */
+#define HCI_NOP_OGF             0x00
+#define HCI_LINK_CONTROL        0x01        /* Link Control Commands */
+#define HCI_LINK_POLICY         0x02        /* Link Policy Commands */
+#define HCI_HOST_C_N_BB         0x03        /* Host Controller & Baseband Commands */
+#define HCI_INFO_PARAM          0x04        /* Informational Parameters */
+#define HCI_STATUS_PARAM        0x05        /* Status Parameters */
+#define HCI_TESTING             0x06        /* Testing Commands */
+#define HCI_LE                  0x08        /* BLE cmd */
+#define HCI_VENDOR_OGF          0x3F        /* vendor Commands */
 
 /* Opcode Command Field (OCF) values */
 #define HCI_NOP_OCF 0x00
@@ -550,7 +547,7 @@
 
 /* Command packet length (including ACL header)*/
 #define HCI_INQUIRY_PLEN 8
-#define  HCI_CANCEL_INQUIRY_PLEN 3
+#define HCI_CANCEL_INQUIRY_PLEN 3
 #define HCI_PERIDIC_INQUIRY 12
 #define HCI_CANCEL_PERIDIC_INQYIRY 3
 #define HCI_CREATE_CONN_PLEN 16

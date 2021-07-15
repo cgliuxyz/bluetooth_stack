@@ -902,15 +902,21 @@ static err_t _hci_vendor_evt_process(uint8_t *payload,uint16_t payload_len)
     return BT_ERR_OK;
 }
 
-
-static err_t _hci_init_cmd_compl_process(uint8_t *payload,uint16_t payload_len)
+/**
+*函数名：_hci_init_cmd_compl_process
+*描   述：CMD完成处理
+*参   数：uint8_t *payload 上报参数
+         uint16_t payload_len 上报参数长度
+*返回值：err_t 执行状态
+*注   意：无
+*/
+static err_t _hci_init_cmd_compl_process(uint8_t *payload, uint16_t payload_len)
 {
     uint16_t opcode = bt_le_read_16(payload, 1);
 
-
     BT_HCI_TRACE_DEBUG("_hci_init_cmd_compl_process:0x%x\n",opcode);
 
-    if((opcode&HCI_GRP_VENDOR_SPECIFIC) == HCI_GRP_VENDOR_SPECIFIC)
+    if((opcode & HCI_GRP_VENDOR_SPECIFIC) == HCI_GRP_VENDOR_SPECIFIC)
     {
         BT_HCI_TRACE_DEBUG("Init recv HCI_GRP_VENDOR_SPECIFIC\n");
         _hci_vendor_init(HCI_OGF(opcode),HCI_OCF(opcode));
@@ -1549,13 +1555,15 @@ err_t hci_inquiry(uint32_t lap, uint8_t inq_len, uint8_t num_resp,
 
         return BT_ERR_MEM; /* Could not allocate memory for bt_pbuf_t */
     }
+
     /* Assembling command packet */
     p = hci_cmd_ass(p, HCI_INQUIRY, HCI_LINK_CONTROL, HCI_INQUIRY_PLEN);
+
     /* Assembling cmd prameters */
-    bt_le_store_24((uint8_t *)p->payload,3,lap);
+    bt_le_store_24((uint8_t *)p->payload, 3, lap);
     ((uint8_t *)p->payload)[6] = inq_len;
     ((uint8_t *)p->payload)[7] = num_resp;
-    phybusif_output(p, p->tot_len,PHYBUSIF_PACKET_TYPE_CMD);
+    phybusif_output(p, p->tot_len, PHYBUSIF_PACKET_TYPE_CMD);
     bt_pbuf_free(p);
 
     return BT_ERR_OK;
@@ -1574,13 +1582,13 @@ err_t hci_cancel_inquiry(void)
         bt_memp_free(MEMP_HCI_INQ, tmpres);
     }
 
-
     if((p = bt_pbuf_alloc(BT_TRANSPORT_TYPE, HCI_CANCEL_INQUIRY_PLEN, BT_PBUF_RAM)) == NULL)
     {
         BT_HCI_TRACE_ERROR("ERROR:file[%s],function[%s],line[%d] bt_pbuf_alloc fail\n",__FILE__,__FUNCTION__,__LINE__);
 
         return BT_ERR_MEM; /* Could not allocate memory for bt_pbuf_t */
     }
+
     /* Assembling command packet */
     p = hci_cmd_ass(p, HCI_INQUIRY_CANCEL, HCI_LINK_CONTROL, HCI_CANCEL_INQUIRY_PLEN);
     phybusif_output(p, p->tot_len,PHYBUSIF_PACKET_TYPE_CMD);
@@ -2644,7 +2652,14 @@ err_t hci_write_stored_link_key(struct bd_addr_t *bdaddr, uint8_t *link)
     return BT_ERR_OK;
 }
 
-
+/**
+*函数名：hci_write_local_name
+*描   述：写蓝牙名称
+*参   数：uint8_t *name 蓝牙名称
+         uint8_t len 蓝牙名称长度
+*返回值：err_t 执行状态
+*注   意：无
+*/
 err_t hci_write_local_name(uint8_t *name, uint8_t len)
 {
     struct bt_pbuf_t *p;
@@ -2654,12 +2669,14 @@ err_t hci_write_local_name(uint8_t *name, uint8_t len)
 
         return BT_ERR_MEM;
     }
+
     /* Assembling command packet */
     p = hci_cmd_ass(p, HCI_WRITE_LOCAL_NAME, HCI_HOST_C_N_BB, HCI_CHANGE_LOCAL_NAME_PLEN);
+
     /* Assembling cmd prameters */
-    memset(((uint8_t *)p->payload) + 3,0,HCI_CHANGE_LOCAL_NAME_PLEN-3);
+    memset(((uint8_t *)p->payload) + 3, 0, HCI_CHANGE_LOCAL_NAME_PLEN-3);
     memcpy(((uint8_t *)p->payload) + 3, name, len);
-    phybusif_output(p, p->tot_len,PHYBUSIF_PACKET_TYPE_CMD);
+    phybusif_output(p, p->tot_len, PHYBUSIF_PACKET_TYPE_CMD);
     bt_pbuf_free(p);
 
     return BT_ERR_OK;
@@ -2722,6 +2739,13 @@ err_t hci_write_scan_enable(uint8_t scan_enable)
     return BT_ERR_OK;
 }
 
+/**
+*函数名：hci_write_cod
+*描   述：写设备类型(Class of Device)
+*参   数：uint8_t *cod class of device
+*返回值：err_t 执行状态
+*注   意：无
+*/
 err_t hci_write_cod(uint8_t *cod)
 {
     struct bt_pbuf_t *p;
@@ -2740,7 +2764,6 @@ err_t hci_write_cod(uint8_t *cod)
 
     return BT_ERR_OK;
 }
-
 
 err_t hci_read_voice_setting(void)
 {
@@ -2958,6 +2981,13 @@ err_t hci_write_le_enable(uint8_t le_support,uint8_t simultaneous)
 
 }
 
+/**
+*函数名：hci_read_local_version_info
+*描   述：读本地版本信息(HCI/LMP Version)
+*参   数：
+*返回值：err_t 执行状态
+*注   意：无
+*/
 err_t hci_read_local_version_info(void)
 {
     struct bt_pbuf_t *p;
@@ -2969,13 +2999,19 @@ err_t hci_read_local_version_info(void)
     /* Assembling command packet */
     p = hci_cmd_ass(p, HCI_READ_LOCAL_VER_INFO, HCI_INFO_PARAM, HCI_R_LOCOL_VER_INFO_PLEN);
     /* Assembling cmd prameters */
-    phybusif_output(p, p->tot_len,PHYBUSIF_PACKET_TYPE_CMD);
+    phybusif_output(p, p->tot_len, PHYBUSIF_PACKET_TYPE_CMD);
     bt_pbuf_free(p);
 
     return BT_ERR_OK;
 }
 
-
+/**
+*函数名：hci_read_buffer_size
+*描   述：读缓存大小
+*参   数：
+*返回值：err_t 执行状态
+*注   意：无
+*/
 err_t hci_read_buffer_size(void)
 {
     struct bt_pbuf_t *p;
@@ -2985,15 +3021,24 @@ err_t hci_read_buffer_size(void)
 
         return BT_ERR_MEM;
     }
+
     /* Assembling command packet */
     p = hci_cmd_ass(p, HCI_READ_BUFFER_SIZE, HCI_INFO_PARAM, HCI_R_BUF_SIZE_PLEN);
+
     /* Assembling cmd prameters */
-    phybusif_output(p, p->tot_len,PHYBUSIF_PACKET_TYPE_CMD);
+    phybusif_output(p, p->tot_len, PHYBUSIF_PACKET_TYPE_CMD);
     bt_pbuf_free(p);
 
     return BT_ERR_OK;
 }
 
+/**
+*函数名：hci_read_bd_addr
+*描   述：读蓝牙地址
+*参   数：
+*返回值：err_t 执行状态
+*注   意：无
+*/
 err_t hci_read_bd_addr(err_t (* rbd_complete)(void *arg, struct bd_addr_t *bdaddr))
 {
     struct bt_pbuf_t *p;
@@ -3006,8 +3051,10 @@ err_t hci_read_bd_addr(err_t (* rbd_complete)(void *arg, struct bd_addr_t *bdadd
 
         return BT_ERR_MEM;
     }
+    
     /* Assembling command packet */
     p = hci_cmd_ass(p, HCI_READ_BD_ADDR, HCI_INFO_PARAM, HCI_R_BD_ADDR_PLEN);
+
     /* Assembling cmd prameters */
     phybusif_output(p, p->tot_len,PHYBUSIF_PACKET_TYPE_CMD);
     bt_pbuf_free(p);

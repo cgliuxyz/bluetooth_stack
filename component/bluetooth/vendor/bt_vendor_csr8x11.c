@@ -69,12 +69,20 @@ int prepare_pos = 0;
 unsigned char *pcsr8x11_initscript;
 
 extern struct bt_pbuf_t *hci_cmd_ass(struct bt_pbuf_t *p, uint8_t ocf, uint8_t ogf, uint8_t len);
-void csr8x11_vendor_init(init_done_cb cb,uint8_t ogf,uint8_t ocf)
+
+/**
+*函数名：csr8x11_vendor_init
+*描   述：CSR8x11 Vendor初始化
+*参   数：
+*返回值：无
+*注   意：各家厂家芯片自定义的一些指令设置(OGF:0x3F)
+*/
+void csr8x11_vendor_init(init_done_cb cb, uint8_t ogf, uint8_t ocf)
 {
     struct bt_pbuf_t *p;
     uint16_t size = 0;
     uint16_t varid;
-    pcsr8x11_initscript = csr8x11_initscript+prepare_pos;
+    pcsr8x11_initscript = csr8x11_initscript + prepare_pos;
     size = pcsr8x11_initscript[0];
     prepare_pos += (size+1);
 
